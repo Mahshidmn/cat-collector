@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if object %}
+     <h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
+{% else %}
+    <h1>Add Cat</h1>  
+{% endif %} 
+   
+    <!-- if we dont give an action url , it will post the data on the same URL -->
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <!-- DTL --> 
+            <!-- Ex: {{ form.as_p }} -->
+            <!--  its smart write the whole table HTML and changing the model will change the form -->
+            {{ form.as_table }}
+        </table>
+        {% if object %}
+        <input type="submit" value="Create Cat" class="btn">
+        {% else %}
+        <input type="submit" value="Update Cat" class="btn">
+        {% endif %}
+    </form>
+{% endblock %}
+
