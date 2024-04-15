@@ -1,4 +1,4 @@
-x`databases:
+databases:
   - name: catcollectordb
     plan: free
     databaseName: catcollector
